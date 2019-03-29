@@ -3,13 +3,14 @@ package main
 import (
 	"encoding/json"
 	"fmt"
-	driveService "gdrive/driveservice"
 	"io/ioutil"
 	"log"
 	"net/http"
 	"os"
 	"os/exec"
 	"sync"
+
+	driveService "github.com/ameena3/driveservice"
 
 	"golang.org/x/net/context"
 	"golang.org/x/oauth2"
