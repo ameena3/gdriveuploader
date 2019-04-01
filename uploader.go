@@ -104,7 +104,17 @@ func main() {
 	if err != nil {
 		log.Fatalf("Unable to retrieve Drive client: %v", err)
 	}
+	list := fs.GetAllFilesOnDrive()
+	for name, file := range list {
+		fmt.Println(name)
+		fmt.Println(file.Id)
+		if len(file.Parents) != 0 {
+			fmt.Println(file.Parents[0])
+		} else {
+			fmt.Println("no parent found")
+		}
 
-	//fs.UploadFileBatched("1Dhg2f9vtrG9PPsKvugNoTvq2vckXamjx", 5, "/home/anubhav/Projects/backup/MoviesShows/")
-	fs.DeleteFileBatched("/home", 1)
+		fmt.Println(file.Kind)
+		fmt.Println(file.MimeType)
+	}
 }
