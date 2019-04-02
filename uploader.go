@@ -104,17 +104,18 @@ func main() {
 	if err != nil {
 		log.Fatalf("Unable to retrieve Drive client: %v", err)
 	}
-	list := fs.GetAllFilesOnDrive()
-	for name, file := range list {
-		fmt.Println(name)
-		fmt.Println(file.Id)
-		if len(file.Parents) != 0 {
-			fmt.Println(file.Parents[0])
-		} else {
-			fmt.Println("no parent found")
-		}
+	// list := fs.GetAllFilesOnDrive()
+	// for name, file := range list {
+	// 	fmt.Println(name)
+	// 	fmt.Println(file.Id)
+	// 	if len(file.Parents) != 0 {
+	// 		fmt.Println(file.Parents[0])
+	// 	} else {
+	// 		fmt.Println("no parent found")
+	// 	}
 
-		fmt.Println(file.Kind)
-		fmt.Println(file.MimeType)
-	}
+	// 	fmt.Println(file.Kind)
+	// 	fmt.Println(file.MimeType)
+	// }
+	fs.UploadDriveBatched(1, "/home/anubhav/Projects/backup/cpp/test.blah")
 }
